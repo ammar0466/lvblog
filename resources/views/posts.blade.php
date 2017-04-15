@@ -41,7 +41,7 @@
                             <td>{{ $post->updated_at }}</td>
                             <td>{{ $post->user_id }}</td>
                             <td><div class="btn-group">
-                            <a href="{{ route('post.edit', $post->id) }}" class="btn btn-sm btn-default">Edit</a><a href="{{ route('post.delete', $post->id) }}" class="btn btn-sm btn-default">Delete</a>
+                            <a href="{{ route('post.edit', $post->id) }}" class="btn btn-sm btn-success">Edit</a><a href="{{ route('post.delete', $post->id) }}" class="btn btn-sm btn-danger">Delete</a>
                             </div>
                             </td>
                         </tr>

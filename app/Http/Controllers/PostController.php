@@ -12,7 +12,9 @@ class PostController extends Controller
 {
     
     public function showAllposts(){
-    	$varpost=Post::all();
+        //show all post
+    	//$varpost=Post::all();
+        $varpost=Post::where([['user_id','=',Auth::user()->id]])->get();
 
     	return view('posts')->with('postview',$varpost);
     	// return view('posts')->withPostview($varpost);
@@ -39,6 +41,36 @@ class PostController extends Controller
     	return redirect()->route('post.index')->withSuccess('Post Created');
     }
 
+    public function editPost($id){
+        $varpost=Post::where([
+            ['id','=',$id],
+            ['user_id','=',Auth::user()->id]
+            ])->first();
+
+        return view('editform')->withId($id)->withPost($varpost);
+
+    }
+
+    public function updatePost(Request $request, $id){
+        $varpost=Post::where([
+            ['id','=',$id],
+            ['user_id','=',Auth::user()->id]
+            ])->first();
+
+        if($varpost){
+            $varpost->title=$request->input('title');
+            $varpost->story=$request->input('story');
+            $varpost->save();
+
+            return redirect()->route('post.index')->withSuccess(' Syukur Post Succesfully Updated');
+
+        }
+        else {
+            return redirect()->route('post.index')->withSuccess('Cannot Update Post');
+        }
+
+
+    }
     public function deletePost($id){
         $varpost=Post::find($id);
         //$varpost=Post::where([['id','=',$id],['user_id','=','0']])->first();
@@ -51,5 +83,7 @@ class PostController extends Controller
             return redirect()->route('post.index')->withSuccess('Cannot Delete Post');
         }
     }
+
+
 
 }
