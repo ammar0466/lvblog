@@ -71,6 +71,35 @@ class PostController extends Controller
 
 
     }
+
+    public function searchPost(Request $request){
+        $searchtext=$request->input('searchtext');
+        $searchopt=$request->input('searchopt');
+        if ( !empty($searchtext)){
+            switch($searchopt){
+                case 'id': 
+                $res=Post::where([['id','=',$searchtext]])->get();
+                break;
+                case 'title': 
+                $searchtext='%'.$searchtext.'%';
+                $res=Post::where([['title','like',$searchtext]])->get();
+                break;
+                case 'story': 
+                $res=Post::where([['story','=',$searchtext]])->get();
+                break;
+                default: 
+                $res=Post::where([['id','=',$searchtext]])->get();
+                break;
+            }
+        }
+        else{
+
+            $res=Post::all();
+
+        }
+        return view('posts')->withPostview($res);
+    }
+
     public function deletePost($id){
         $varpost=Post::find($id);
         //$varpost=Post::where([['id','=',$id],['user_id','=','0']])->first();

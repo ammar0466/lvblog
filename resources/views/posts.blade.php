@@ -22,7 +22,35 @@
                 </div> 
                 </div>
 
+
+
                 <div class="panel-body">
+                {{-- SEARCH BAR --}}
+                <form id="searchForm" name="searchForm" action="{{ route('post.search')}}" method="post" class="form-horizontal">
+                {{csrf_field()}}
+                <div class="row">
+                    <div class="col-md-12 input-group">
+                        <div class="col-md-6">
+                            <input type="text" name="searchtext" class="form-control" placeholder="Search for...">
+                        </div>
+                        <div class="col-md-4">
+                            <select name="searchopt" class="form-control">
+                                <option value="id">ID</option>
+                                <option value="title">Title</option>
+                                <option value="story">Story</option>
+                            </select>
+                        </div>
+                        <div class="col-md-2">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="submit">Go!                                   
+                                </button>
+                            </span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+
                 <table class="table">
                     <thead>
                         <th>Id</th>
