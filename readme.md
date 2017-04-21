@@ -1,10 +1,4 @@
-# Laravel PHP Framework
-
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+# Blog with Laravel Php Framework
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
 
@@ -12,15 +6,27 @@ Laravel is accessible, yet powerful, providing tools needed for large, robust ap
 
 ## Official Documentation
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+Kelas minggu ke-4 di Nazrol Tech Kota Bharu, Belajar Laravel dengan Abe li(En. Rosli).
 
-## Contributing
+## How tos /cara-cara
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+1. install xampp , Composer
+2. go to Htdocs
+3. Run CMD type :
+  <code>composer create-project --prefer-dist laravel/laravel blog "5.2.*"</code>
+  
+4. edit .env file:
+      DB name (create new DB on mysql)
+      DB User
+      DB Pass
+      
+5. Migrate db, CMD type :
+    <code>php artisan migrate </code>
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+
+
+
 
 ## License
 
